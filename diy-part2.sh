@@ -10,6 +10,9 @@ sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generat
 # Modify default hostname
 sed -i 's/OpenWrt/K2P/g' package/base-files/files/bin/config_generate
 
+# 修正wifi不能启动问题
+sed -i '/uci commit fstab/a\\nlanCheck=`uci get network.lan.ifname`\nuci set network.lan.ifname="$lanCheck rai0 ra0"\nuci commit network' package/lean/default-settings/files/zzz-default-settings
+
 # Modify default timezone
 sed -i "s/'UTC'/'CST-8'\n\t\tset system.@system\[0\].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
