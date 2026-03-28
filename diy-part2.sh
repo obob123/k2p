@@ -17,5 +17,5 @@ sed -i '/uci commit fstab/a\\nlanCheck=`uci get network.lan.ifname`\nuci set net
 sed -i "s/'UTC'/'CST-8'\n\t\tset system.@system\[0\].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
 # Remove default theme argon (if exists) and re-clone latest version
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+# rm -rf feeds/luci/themes/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
